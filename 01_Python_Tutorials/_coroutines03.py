@@ -36,7 +36,8 @@ def scheduler(coros):
             pass
  #       print(f"Time elapsed: {time.time()-start:.3}s")
 
-class Sleep:
+
+class Sleep:        #Awaitable class --> Awaitable object
     def __init__(self, delay):
         self.delay = delay
         
@@ -44,7 +45,7 @@ class Sleep:
         yield ("sleep", self.delay)
 
 def sleep(delay):
-    return Sleep(delay)
+    return Sleep(delay)     #returns an special object (Awaitlable object) with the special method __await__, like a coroutine objects
 
 
 
