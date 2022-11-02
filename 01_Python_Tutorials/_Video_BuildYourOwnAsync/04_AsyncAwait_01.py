@@ -1,13 +1,13 @@
+# Simple background for async await
+
 import time
 
 class Awaitable:
     def __await__(self):
         yield
-
+    
 def switch():
     return Awaitable()
-
-
 
 
 async def countUp(stop):      #Returning generator

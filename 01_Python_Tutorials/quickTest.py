@@ -1,9 +1,8 @@
 
-a =(None for i in range(5))
-print(type(a))
+def func1(i):
+    x = yield i
 
-a =[None for i in range(5)]
-print(type(a))
+aa = func1(8)
 
-a ={None for i in range(5)}
-print(type(a))
+print(type(func1))
+print(type(aa))

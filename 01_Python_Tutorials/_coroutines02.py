@@ -1,6 +1,4 @@
-# Cooperative Multitasking:
-# How to use coroutines for a simple concurrency scheme
-# Simulating I/O with time.sleep().
+# Nested coroutines
 import time
 from collections import deque
 import heapq
@@ -18,6 +16,7 @@ def scheduler(coros):
         if not ready:
             deadline, coro = heapq.heappop(sleeping)
             if deadline > time.time():
+                print('Waiting any courotine....')
                 time.sleep(deadline - time.time())
             ready.append(coro)
             
@@ -33,24 +32,26 @@ def scheduler(coros):
                 ready.append(coro)      #in this case adding it just result in passing to exception
         except StopIteration:
             pass
-        print(f"Time elapsed: {time.time()-start:.3}s")
+ #       print(f"Time elapsed: {time.time()-start:.3}s")
+
 
 
 def get_page():
     print("Starting to download page")
-    yield ("sleep", 1.2)
+    yield ("sleep", 1)
     print("Done downloading page")
-    yield "<html>Hello</html>"
+    return "<html> !! DATA IS HERE BITCHES !!</html>"
 
-def read_db():
-    print("Starting to retrieve data from db")
+def write_db(data):
+    print("Starting to write data to db")
     yield ("sleep", 0.5)
     print("Connected to db")
     yield ("sleep", 1)
-    print("Done retrieving data from db")
-    yield "db-data"
+    print("Done writing data to db")
 
+def worker():
+    page = yield from get_page()
+    print(page)
+    yield from write_db(page)
 
-
-#scheduler([get_page(), read_db()])
-scheduler([get_page() if i%2 == 0 else read_db() for i in range(1000)])
+scheduler([worker(), worker(), worker()])
