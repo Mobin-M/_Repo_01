@@ -27,6 +27,7 @@ def scheduler(coros):
             # the case of a coro that wants to be put to sleep
             if len(result) == 2 and result[0] == "sleep":
                 deadline = time.time() + result[1]
+                time.sleep(0.001)       # Needed at least in windows PC (ZF PC), no problem observed in ubuntu
                 heapq.heappush(sleeping, (deadline, coro))
             else:
                 print(f"Got: {result}")
