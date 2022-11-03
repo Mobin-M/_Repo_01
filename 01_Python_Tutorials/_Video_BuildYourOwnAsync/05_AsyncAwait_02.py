@@ -62,7 +62,7 @@ async def countUp(stop):
     n = 0
     while n < stop:
         print('Up,', n)
-        await sched.sleep(0.5, "countUp")
+        await sched.sleep(0.4, "countUp")
         n += 1
 
 
