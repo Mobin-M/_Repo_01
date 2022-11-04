@@ -79,7 +79,9 @@ class QueueClosed(Exception):
 def yield_control(name: str):
     return Awaitable(name)
 
-# ---------------------------
+
+
+# ------------tasks---------------
 
 async def producer(q, count):
     for n in range(count):
@@ -99,8 +101,7 @@ async def consumer(q):
 
 
 
-
-# ----------------------------
+# ---------------main-------------
 sched = Scheduler()
 q = AsyncQueue()
 
