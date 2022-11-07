@@ -5,9 +5,9 @@ import heapq
 
 class Scheduler:
     def __init__(self):
-        self.ready = deque()
-        self.current = None
-        self.sleeping = []
+        self.ready = deque()    # waiting list of ready coroutines to be executed
+        self.current = None     # current coroutines being executed
+        self.sleeping = []      # sleeping coroutines
         self.sequence = 0
 
     def new_task(self, coro):

@@ -119,7 +119,6 @@ def idft(N,x_k):
     return x_n_constructed
 
 
-
 #### The development both in main and basis function is changed!!:
 ###### Lets look at idft in another and maybe in a better way...
 ###### Instead of treting it like dft, in the basis function for each n we calculate basis function for all possible k's.
