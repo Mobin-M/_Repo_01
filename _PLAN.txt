@@ -1,45 +1,31 @@
 ## ## ## ## ## ## PLAN: 
 Make an Console app, playing plotting analyzing sinusoids with one sinusoid existing at a time:
     - Getting only ONE sinusoid (frequency and Amplitude and phase)
-    - playing it (continuous)
-    - Refresh it when sinusoid properties changed even while playing.
+    - playing it for T_sec 
+    - let the T second finish before getting a new input
     - Make the Plots:
-      It can be easier for now to do the plots when finished playing
+      -do plots when finished playing
         - the sinusoid
         - Plot the frequency plot using both the understanding of the frequency existed and then using the Fourier transform (DFT/FFT)
         - Plot also spectogram as well for whole period (eventhough it is just one frequency)
-    - Add a "parametric, modifiable, creative" ADSR to it. and re-Do all the above (specially spectogram to see if new freq pop up?) for the envelop. 
-    - Plot the ADSR alone as well.
     
 
 
 
-## ## ## ## ## DESIGN
-Lets say user inputs a freq, amp, phi (throug typing and hitting enter):
- - this function should always be avaiable since the user should be able to change/modify the sinusoid whenever desired. (Note that at this stage it is about modifying NOT adding another frequency)
- - As a result/requirement, the other funciton, playing, should not be locking for this function
- - 
- 
 
-Lets play continuously the sinusoid:
-    - **** How is it possible to use concurrent programming to have playing as a non blocking function for input function.
-      Can it be by using Async, thread or Paralle execution
-    - How to end the playing? Special keyboard interrupt?
+## ## ## ## ## NOTES
+- How is it possible to play a sound continuously. generating a sinusoid/wav file for infinite time...
+  1) either we have to generate while playing and remove the previously generated data in order to not finish memory!
+  2) cut at a period and make a loop
+  3) any other way??
 
-
-Plot after one round of playing is done, meaning when playing is stopped/ended. maybe by a request from the user.
-    - at this time it is ok that plotting blocks other activities, like user inputs
-    - plot can be done either for a whole time of play or for a fraction on it.
+- How to add a note to previously playing sound (for later stages):
+  think of a scenario that a note is already being played (for T_sec for example and with/out ADSR). and you want to add another note/frequency to it while playing so that the original note finishes at T_sec and the new note continues for T2_sec...how is it possible?
+  First thing is that the input function should always be available. How? thread,async,parallel,..?
 
 
 
-
-
-
-
-
-
-## ## ## ## STATE OF PLAN 
+## ## ## ## ## STATE OF PLAN 
 - Understanding asynchronous programming used for concurrent programming
 - Asynchio to make the final version of the console app
 - Learn about ADSR and it's method
@@ -47,12 +33,13 @@ Plot after one round of playing is done, meaning when playing is stopped/ended. 
 
 
 
+## ## ## next steps/ideas
+* Add a "parametric, modifiable, creative" ADSR to it. and re-Do all the above (specially spectogram to see if new freq pop up?) for the envelop.  ---- ADSR like PID Controller!!!! -- maybe both/either on frequency or amplitude!!! Plot the ADSR alone as well.
 
+* Frequency growth of a sound/sinusoid with exponentional rate. comparison with linear and ...
 
+* ADSR with changing frequency : adding Harmonics
 
-
-
-## ## ## next steps
 * Adding another frequency to the existing one, (combining together) while still playing. Update the plots
 
 * the input function can be replaced by assigning frequencoes to keyboard button.
@@ -63,7 +50,7 @@ Plot after one round of playing is done, meaning when playing is stopped/ended. 
 
 * how it is to replicate a instrument (Analyze also Freesounds wav) and how to deviate from it
 
-* Different effect to use on the sound and what else can be done. Reverb, filters, ...
+* Different effect to use on the sound and what else can be done. Reverb, filters, ... (after having multiple frequencies or maybe just with one note)
 
 * make an interface to work easier with these sounds
 

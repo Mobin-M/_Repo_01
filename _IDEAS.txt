@@ -1,3 +1,1 @@
-#   1-  Frequency growth of a sound/sinusoid with exponentional rate. 
-#       comparison with linear and ...
-#   2-  ADSR with changing frequency : adding Harmonics
+## IDEAS
