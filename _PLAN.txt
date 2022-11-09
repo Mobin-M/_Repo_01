@@ -48,6 +48,8 @@ Make an Console app, playing plotting analyzing sinusoids with one sinusoid exis
 
 * how to generate different wave forms? sawtooth,...
 
+* How to play a note with/out ADSR as long as a key (keyboard is pressed)
+
 * how it is to replicate a instrument (Analyze also Freesounds wav) and how to deviate from it
 
 * Different effect to use on the sound and what else can be done. Reverb, filters, ... (after having multiple frequencies or maybe just with one note)
