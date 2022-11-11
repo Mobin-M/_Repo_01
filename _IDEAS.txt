@@ -1,1 +1,32 @@
 ## IDEAS
+
+focus on sound design on python
+not to make a working playable synthesizer but to make the elements and experiment with thm.
+like:
+making simple sinusoids/beats
+making advanced complicated sounds,/beats, harmonics,..
+filtering, modifying
+ADSR
+how to sample sound, analyze and work on them, modify them, combine them,...
+finally making full range/octave of great sound designs to later use them in production
+
+
+
+
+
+
+## SNAP SPECIFIC IDEAS
+#
+imagine an adsr:
+reacing the set amplitude of the sinusoid with a pid like controller 
+and at the same time reaching the set frequency of the sinusoid with a pid controller
+
+#
+
+
+
+#
+
+
+
+#
