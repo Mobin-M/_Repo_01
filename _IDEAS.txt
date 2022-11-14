@@ -8,7 +8,7 @@ making advanced complicated sounds,/beats, harmonics,..
 filtering, modifying
 ADSR
 how to sample sound, analyze and work on them, modify them, combine them,...
-finally making full range/octave of great sound designs to later use them in production
+finally making full range/octaves of great sound designs to later use them in production
 
 
 
