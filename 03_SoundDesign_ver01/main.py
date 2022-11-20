@@ -22,6 +22,7 @@ async def test(scheduler, n):
 
 
 ## START OF THE PROGRAM
+print("######################\n### Program starts ### \n######################")
 sched = Scheduler()
 sched.new_task(test(sched, 5))
 sched.run()
