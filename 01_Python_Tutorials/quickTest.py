@@ -1,21 +1,11 @@
+# SuperFastPython.com
+# example of executing a target task function in a separate thread
+from time import sleep
+from threading import Thread
 
-def func1():
-    yield 10
-    yield 20
-    yield 30
+b = 5
+def func():
+    print(b)
 
-async def func2():
-    return 1
-
-print('////////////////////////////////////////////')
-aa = func1()
-print(type(aa))
-print(dir(aa)) 
-
-
-
-print('////////////////////////////////////////////')
-aaa = func2()
-print(type(aaa))
-print(dir(aaa))
+func()
 
