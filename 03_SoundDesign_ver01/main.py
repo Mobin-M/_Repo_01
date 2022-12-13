@@ -11,10 +11,29 @@ from time import sleep
 ## GLOBAL VARIABLE
 f_comm = 0
 f_play = 1
-f_query = 0
 int_req = 0
+task_list = {
+    0:  "nothing",
+    1:  "build_sinusoid",
+    2:  "add_harmonics",
+    3:  "add_adsr",
+    4:  "add_filter",
+    5:  "save_data",
+    99: "exit"
+}
 
 ## FUCNTIONS
+def nothing():
+    print("Nothing!")
+    sleep(2)
+
+def exit():
+    print("closing the application...")
+
+def build_sinusoid():
+    print("Building a new sinusoid...")
+    print("Need info:")
+
 # function to continuously playing when f_play == 1
 def play():
     while True:
@@ -37,34 +56,32 @@ def query():
     print("(4)      add filer")
     print("(5)      save data")
     print("(99)     Exit without save")
-    int_req = int(input())
+    try:
+        int_req = int(input())
+    except:
+        int_req = 0
     if (int_req != 0):
         global f_play
-        global f_query
-        f_query = 1
         f_play = 0
-        print(f"Task {int_req} requested")
-        # This thread dies here, next time it should be run/started again
-        sleep(1)
-    sleep(1)
 
 # function recieving task number and performing the task
 def tasks():
     global int_req
     global f_play
     
-    if (int_req != 0):  
-        # add a switch case for every request
-        print(f"starting  task {int_req}")
-        sleep(5)
-        print("task done")
-        f_play = 1
+    func_name = task_list.get(int_req, "nothing")
+    print(type(func_name))
+    print(f"starting task {func_name}")
+    eval(func_name+"()")
+    print(f"{func_name} task is done!")
+    f_play = 1
 
 
-
+print()
 print("###############################################")
 print ("########### Sound design program ##############")
 print("###############################################")
+print()
 
 t_play = Thread(target=play, daemon=True)
 t_play.start()
