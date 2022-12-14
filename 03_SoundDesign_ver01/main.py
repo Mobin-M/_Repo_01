@@ -2,11 +2,10 @@
 ##################SOUND DESIGN####################
 ################################################
 ## IMPORTING GENERAL STUFF
-from sinusoid import Discrete_Real_Sinusoid_1 as Dsin
-from scipy.io.wavfile import write
 from playsound import playsound
 from threading import Thread
 from time import sleep
+from tasks import *
 
 ## GLOBAL VARIABLE
 f_comm = 0
@@ -19,20 +18,10 @@ task_list = {
     3:  "add_adsr",
     4:  "add_filter",
     5:  "save_data",
-    99: "exit"
+    99: "to_exit"
 }
 
 ## FUCNTIONS
-def nothing():
-    print("Nothing!")
-    sleep(2)
-
-def exit():
-    print("closing the application...")
-
-def build_sinusoid():
-    print("Building a new sinusoid...")
-    print("Need info:")
 
 # function to continuously playing when f_play == 1
 def play():
@@ -61,8 +50,9 @@ def query():
     except:
         int_req = 0
     if (int_req != 0):
-        global f_play
-        f_play = 0
+        #global f_play
+        #f_play = 0
+        pass
 
 # function recieving task number and performing the task
 def tasks():
@@ -70,19 +60,21 @@ def tasks():
     global f_play
     
     func_name = task_list.get(int_req, "nothing")
-    print(type(func_name))
-    print(f"starting task {func_name}")
+    print(f"starting task: {func_name}")
     eval(func_name+"()")
-    print(f"{func_name} task is done!")
-    f_play = 1
+    print(f"{func_name} is done!")
+    #f_play = 1  reset if in query( ) isset to 0
 
+    
 
+# MainThread
 print()
 print("###############################################")
 print ("########### Sound design program ##############")
 print("###############################################")
 print()
 
+#Run play() on a new thread
 t_play = Thread(target=play, daemon=True)
 t_play.start()
 

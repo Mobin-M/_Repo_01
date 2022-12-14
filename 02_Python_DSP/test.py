@@ -22,8 +22,8 @@ plt.show()
 
 
 # play the sinusoid constructed
-write('./DSP/testWav.wav', fs, x_n)
-playsound('./DSP/testWav.wav')
+#write('./DSP/testWav.wav', fs, x_n)
+#playsound('./DSP/testWav.wav')
 
 
 
