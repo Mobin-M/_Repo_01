@@ -1,6 +1,6 @@
 import numpy as np
 
-def Discrete_Real_Sinusoid_1(A, phi, f0, fs=44100, t_len=1):
+def Discrete_Real_Sinusoid_1(A, phi, f0, fs, t_len):
 
     # A     :   (float) amplitudes of constructing sinusoids [] 
     # phi   :   (float) phases of constructing sinusoids [rad]
@@ -23,5 +23,16 @@ def Discrete_Real_Sinusoid_1(A, phi, f0, fs=44100, t_len=1):
     # x_t = A*exp(1j*2*pi*f0*t + phi)   ------>   x_n = A*exp(2*pi*fd*n + phi)
     x_n = A*np.cos(2*np.pi*fd*n + phi)     #x_n_array is each constucting sinusoid in discrete time before summing up all together
     
+    # saving the np array
+    np.save('./03_SoundDesign_ver01/x_n', x_n)
+
     #returning constructed signal: Note that later, for a dft or a dtfs, this will be just an array of values with a length N.
     return(N, m, x_n)
+
+
+
+
+
+
+# Test the function
+#_,_,x_n = Discrete_Real_Sinusoid_1(1,0,440,44100,2)

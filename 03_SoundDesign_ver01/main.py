@@ -41,7 +41,7 @@ def query():
     print("Request a task:")
     print("(1)      build/modify sinusoid")
     print("(2)      add harmonics")
-    print("(3)      add/modify ADSR")
+    print("(3)      add adsr")
     print("(4)      add filer")
     print("(5)      save data")
     print("(99)     Exit without save")
