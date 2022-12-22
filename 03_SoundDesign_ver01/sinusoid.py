@@ -25,6 +25,7 @@ def Discrete_Real_Sinusoid_1(A, phi, f0, fs, t_len):
     
     # saving the np array
     np.save('./03_SoundDesign_ver01/x_n', x_n)
+    np.save('./03_SoundDesign_ver01/fs',fs)
 
     #returning constructed signal: Note that later, for a dft or a dtfs, this will be just an array of values with a length N.
     return(N, m, x_n)
