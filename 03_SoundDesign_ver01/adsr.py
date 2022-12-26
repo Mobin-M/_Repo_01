@@ -53,7 +53,8 @@ def adsr_linear():
 def adsr_exponential():
     print("performing exponential adsr...")
 
-
+def adsr_P():
+    pass
 
 # choosing the type of the adsr and run the related function
 def query_adsr():
