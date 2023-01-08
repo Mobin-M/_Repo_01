@@ -65,7 +65,6 @@ def tasks():
     print(f"{func_name} is done!")
     #f_play = 1  reset if in query( ) isset to 0
 
-    
 
 # MainThread
 print()

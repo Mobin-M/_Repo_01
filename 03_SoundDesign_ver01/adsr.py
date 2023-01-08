@@ -20,7 +20,7 @@ adsr_list = {
 
 
 def nothing():
-    print("Nothing!")
+    print("No valid adsr")
     sleep(2)
 
 def adsr_linear():
